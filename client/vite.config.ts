@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,4 +7,11 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-})
+  resolve: {
+    alias: [
+      { find: "@components", replacement: "/src/components/index.ts" },
+      { find: "@images", replacement: "../images" },
+      { find: "@types", replacement: "/src/types.ts" },
+    ],
+  },
+});
