@@ -9,7 +9,7 @@ const NavBarItem = ({ title, classprops }: navbarProp) => (
 );
 
 const Navbar: React.FC = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
