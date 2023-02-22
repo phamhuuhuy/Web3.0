@@ -1,21 +1,20 @@
-export type navbarProp = {
+export type NavbarProp = {
   title: string;
   classprops?: {};
 };
 
-export const navbarList: string[] = [
+export const NavbarList: string[] = [
   "Market",
   "Exchange",
   "Tutorials",
   "Wallets",
 ];
 
-export type inputProp = {
+export type InputProp = {
   placeholder: string;
-  name: string;
   type: string;
   value?: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>, name: string) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type FormData = {

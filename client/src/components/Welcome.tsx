@@ -4,18 +4,19 @@ import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 
 import Loader from "./Loader";
-import { FormData, inputProp } from "@types";
+import { FormData, InputProp } from "@types";
 
 const companyCommonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
-const Input = ({ placeholder, name, type, value, handleChange }: inputProp) => (
+const Input = ({ placeholder, name, type, value, handleChange }: InputProp) => (
   <input
     placeholder={placeholder}
     type={type}
     step="0.0001"
     value={value}
-    onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, name)}
+    name={name}
+    onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
     className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
   />
 );
@@ -30,18 +31,17 @@ const Welcome = () => {
     message: "",
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    name: string
-  ) => {
-    setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setformData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = (e: React.MouseEvent<HTMLElement>) => {
     const { addressTo, amount, keyword, message } = formData;
 
     e.preventDefault();
-
     if (!addressTo || !amount || !keyword || !message) return;
 
     console.log("done");
