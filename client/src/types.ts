@@ -15,7 +15,7 @@ export type inputProp = {
   name: string;
   type: string;
   value?: string;
-  handleChange: (e: any, name: string) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>, name: string) => void;
 };
 
 export type FormData = {
